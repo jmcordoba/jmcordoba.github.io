@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Juanma Cordoba</title>
-    <link>https://jmcordoba.github.io/categories/</link>
+    <link>https://www.juanmacordoba.com/categories/</link>
     <description>Recent content in Categories on Juanma Cordoba</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©juanmacordoba.com</copyright><atom:link href="https://jmcordoba.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>©juanmacordoba.com</copyright><atom:link href="https://www.juanmacordoba.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
