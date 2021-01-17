@@ -3,11 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.juanmacordoba.com/categories/</loc>
+    <loc>https://www.juanmacordoba.com/</loc>
+    <lastmod>2021-01-17T13:19:35+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.juanmacordoba.com/</loc>
+    <loc>https://www.juanmacordoba.com/posts/</loc>
+    <lastmod>2021-01-17T13:19:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.juanmacordoba.com/2021/01/this-blog-uses-hugo/</loc>
+    <lastmod>2021-01-17T13:19:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.juanmacordoba.com/contact/</loc>
+    <lastmod>2021-01-03T16:39:09+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.juanmacordoba.com/categories/</loc>
   </url>
   
   <url>
