@@ -7,16 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved</copyright>
-    <lastBuildDate>Sun, 17 Jan 2021 13:19:35 +0100</lastBuildDate><atom:link href="https://www.juanmacordoba.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 16:19:07 +0100</lastBuildDate><atom:link href="https://www.juanmacordoba.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>This blog uses Hugo</title>
-      <link>https://www.juanmacordoba.com/2021/01/this-blog-uses-hugo/</link>
-      <pubDate>Sun, 17 Jan 2021 13:19:35 +0100</pubDate>
+      <title>Books: Accelerate</title>
+      <link>https://www.juanmacordoba.com/2021/01/books-accelerate/</link>
+      <pubDate>Sun, 17 Jan 2021 16:19:07 +0100</pubDate>
       
-      <guid>https://www.juanmacordoba.com/2021/01/this-blog-uses-hugo/</guid>
-      <description>As title says, this blog uses Hugo.
-I was searching for a tool that enabled me to create static web page and upload it to Github as static page.
-I tried Jekyll but finally I chose Hugo.</description>
+      <guid>https://www.juanmacordoba.com/2021/01/books-accelerate/</guid>
+      <description>Accelerate is a book that I want to highlight among all the books I read in 2020.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s go!</title>
+      <link>https://www.juanmacordoba.com/2021/01/lets-go/</link>
+      <pubDate>Sat, 16 Jan 2021 13:19:35 +0100</pubDate>
+      
+      <guid>https://www.juanmacordoba.com/2021/01/lets-go/</guid>
+      <description>It should be the 10th blog I start. Right now, I feel this time I has some thins to say and some things to test as well.</description>
     </item>
     
   </channel>

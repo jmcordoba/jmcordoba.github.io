@@ -7,11 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved</copyright>
-    <lastBuildDate>Sun, 17 Jan 2021 13:19:35 +0100</lastBuildDate><atom:link href="https://www.juanmacordoba.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 16:19:07 +0100</lastBuildDate><atom:link href="https://www.juanmacordoba.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>books</title>
+      <link>https://www.juanmacordoba.com/tags/books/</link>
+      <pubDate>Sun, 17 Jan 2021 16:19:07 +0100</pubDate>
+      
+      <guid>https://www.juanmacordoba.com/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aboutme</title>
+      <link>https://www.juanmacordoba.com/tags/aboutme/</link>
+      <pubDate>Sat, 16 Jan 2021 13:19:35 +0100</pubDate>
+      
+      <guid>https://www.juanmacordoba.com/tags/aboutme/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cms</title>
       <link>https://www.juanmacordoba.com/tags/cms/</link>
-      <pubDate>Sun, 17 Jan 2021 13:19:35 +0100</pubDate>
+      <pubDate>Sun, 03 Jan 2021 16:39:09 +0100</pubDate>
       
       <guid>https://www.juanmacordoba.com/tags/cms/</guid>
       <description></description>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aboutme on Juanma Córdoba</title>
+    <link>https://www.juanmacordoba.com/tags/aboutme/</link>
+    <description>Recent content in aboutme on Juanma Córdoba</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved</copyright>
+    <lastBuildDate>Sat, 16 Jan 2021 13:19:35 +0100</lastBuildDate><atom:link href="https://www.juanmacordoba.com/tags/aboutme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s go!</title>
+      <link>https://www.juanmacordoba.com/2021/01/lets-go/</link>
+      <pubDate>Sat, 16 Jan 2021 13:19:35 +0100</pubDate>
+      
+      <guid>https://www.juanmacordoba.com/2021/01/lets-go/</guid>
+      <description>It should be the 10th blog I start. Right now, I feel this time I has some thins to say and some things to test as well.</description>
+    </item>
+    
+  </channel>
+</rss>
