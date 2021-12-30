@@ -1,0 +1,11 @@
+/* TEAM */
+Juanma Córdoba at jm@juanmacordoba.com
+
+/* THANKS */
+Thanks to all free tools that allow me to publish the site: GitHub.
+Thanks to all free tools that allow me to analyze the site and the visitors of the site.
+
+/* SIT */
+HTML
+CSS
+JS
