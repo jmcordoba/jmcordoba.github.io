@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	
+	<title type="text" xml:lang="en">{{ site.root_desc }}</title>
+	<link type="application/atom+xml" href="https://www.juanmacordoba.com/" rel="self"/>
+ 	<link type="text" href="https://www.juanmacordoba.com" rel="alternate"/>
+	<updated>Sat, 01 Jan 2022 00:00:01 GMT</updated>
+  <id>https://www.juanmacordoba.com</id>
+	<author>
+		<name>Juanma Córdoba Professional Site</name>
+	</author>
+	<rights>Copyright (c) 1981-2100, Juanma Córdoba; all rights reserved.</rights>
+	
+	<entry>
+		<title>Juanma Córdoba | About me</title>
+		<link href="https://www.juanmacordoba.com/about"/>
+		<updated>Sat, 01 Jan 2022 00:00:01 GMT</updated>
+		<id>https://www.juanmacordoba.com/about</id>
+		<content type="html">https://www.juanmacordoba.com/about</content>
+	</entry>
+  
+  <entry>
+		<title>Juanma Córdoba | Blog</title>
+		<link href="https://www.juanmacordoba.com/blog"/>
+		<updated>Sat, 01 Jan 2022 00:00:01 GMT</updated>
+		<id>https://www.juanmacordoba.com/blog</id>
+		<content type="html">https://www.juanmacordoba.com/blog</content>
+	</entry>
+  
+  <entry>
+		<title>Juanma Córdoba | Books</title>
+		<link href="https://www.juanmacordoba.com/books"/>
+		<updated>Sat, 01 Jan 2022 00:00:01 GMT</updated>
+		<id>https://www.juanmacordoba.com/books</id>
+		<content type="html">https://www.juanmacordoba.com/books</content>
+	</entry>
+  
+</feed>
