@@ -6,3 +6,4 @@ if (position==0) {
 }
 console.log(url);
 //window.location.href = url;
+window.location.replace(url)
