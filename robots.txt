@@ -1,6 +1,3 @@
 User-agent: *
-Disallow: /assets/css/
-Disallow: /assets/js/
-Disallow: /assets/html/
 
 Sitemap: https://www.juanmacordoba.com/sitemap.xml
