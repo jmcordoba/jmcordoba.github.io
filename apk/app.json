@@ -8,5 +8,50 @@
     "name": "movistar_champions",
     "option": "b",
     "url": "http://127.0.0.1:6878/ace/m/82725f0cd681298d19a57ad497bc6a8bcb67c18f/713d1c3425b85e1ea7a95a6b2dae3d6e.m3u8"
+  },
+  {
+    "name": "dazn_1",
+    "option": "a",
+    "url": "http://127.0.0.1:6878/ace/m/154cd63dfeccb22354ff4c0caeefdc3b02909938/4433b2c38bc3cee6956ef19d053eb409.m3u8"
+  },
+  {
+    "name": "dazn_1",
+    "option": "b",
+    "url": "http://127.0.0.1:6878/ace/m/154cd63dfeccb22354ff4c0caeefdc3b02909938/3e854326dcd6f5f9a59292ca880b9342.m3u8"
+  },
+  {
+    "name": "dazn_3",
+    "option": "c",
+    "url": "http://127.0.0.1:6878/ace/m/154cd63dfeccb22354ff4c0caeefdc3b02909938/4433b2c38bc3cee6956ef19d053eb409.m3u8"
+  },
+  {
+    "name": "dazn_f1",
+    "option": "a",
+    "url": "http://127.0.0.1:6878/ace/m/f70dd13e059f7cd860d10f81a86f5930f9da92e6/f1d89e96d52bf605c6478fea81ede9e2.m3u8"
+  },
+  {
+    "name": "dazn_laliga",
+    "option": "a",
+    "url": "http://127.0.0.1:6878/ace/m/369b8a3da79370aca8897b36c53da8b542890f5d/27082979a9001f894e38466a82bc8e3d.m3u8"
+  },
+  {
+    "name": "dazn_laliga",
+    "option": "b",
+    "url": "http://127.0.0.1:6878/ace/m/369b8a3da79370aca8897b36c53da8b542890f5d/32f5ecacbae2707fbd56fa3f9f56ff7b.m3u8"
+  },
+  {
+    "name": "movistar_laliga",
+    "option": "a",
+    "url": "http://127.0.0.1:6878/ace/m/e393d8c7582ff203d3aceb48e296241093f3480b/36e9b99ecd9c1f92af07896a97108b56.m3u8"
+  },
+  {
+    "name": "movistar_laliga",
+    "option": "b",
+    "url": "http://127.0.0.1:6878/ace/m/e393d8c7582ff203d3aceb48e296241093f3480b/f2560a89df35652e9e7d63782eea6b4f.m3u8"
+  },
+  {
+    "name": "movistar_laliga",
+    "option": "c",
+    "url": "http://127.0.0.1:6878/ace/m/e393d8c7582ff203d3aceb48e296241093f3480b/b06a5be2c93db4da068364db72fe5130.m3u8"
   }
 ]
