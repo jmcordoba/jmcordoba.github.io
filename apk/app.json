@@ -1,0 +1,12 @@
+[ 
+  {
+    "name": "movistar_champions",
+    "option": "a",
+    "url": "http://127.0.0.1:6878/ace/m/82725f0cd681298d19a57ad497bc6a8bcb67c18f/da59d1d2d4402fb6e99d50afe9cd0ce1.m3u8"
+  },
+  {
+    "name": "movistar_champions",
+    "option": "b",
+    "url": "http://127.0.0.1:6878/ace/m/82725f0cd681298d19a57ad497bc6a8bcb67c18f/713d1c3425b85e1ea7a95a6b2dae3d6e.m3u8"
+  }
+]
