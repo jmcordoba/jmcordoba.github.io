@@ -53,5 +53,10 @@
     "name": "movistar_laliga",
     "option": "c",
     "url": "http://127.0.0.1:6878/ace/m/e393d8c7582ff203d3aceb48e296241093f3480b/b06a5be2c93db4da068364db72fe5130.m3u8"
+  },
+  {
+    "name": "dazn_3",
+    "option": "a",
+    "url": "acestream://bfbcda5a0999256360ce560caf2a6473aafc3f11"
   }
 ]
