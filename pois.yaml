@@ -1,0 +1,607 @@
+swagger: "2.0"
+info:
+  version: v2
+  title: POIs API
+  contact:
+    name: Nestlé - Delivery
+    url: https://wiki.nespresso.com
+    email: SofaDevelopmentTeam@nespresso.com
+host: __app.baseurl__
+basePath: /ecapi/pois/v2
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: apiname
+    description: pois
+responses:
+  '500':
+    description: An unexpected technical issue happened server side
+    schema:
+      $ref: './error-definitions.yaml#/definitions/Error'
+  '404':
+    description: Resource not found
+    schema:
+      $ref: './error-definitions.yaml#/definitions/ResourceNotFoundError'
+  '400':
+    description: Bad request
+    schema:
+      $ref: './error-definitions.yaml#/definitions/Error'
+
+paths:
+  /{marketCode}/{poisType}:
+    get:
+      summary: list of pois
+      description: used to retrieve a list of pois for a specified geolocation or pickup-point group
+      operationId: search
+      parameters:
+        - name: marketCode
+          in: path
+          required: true
+          type: string
+          description: 'Nesclub2 market code in lowercase eg: us, ch...'
+        - name: poisType
+          in: path
+          type: string
+          required: true
+          enum: ['All', 'Boutique', 'Pick_Up_Point', 'Trade_Point', 'Point_Of_Sale']
+          description: type of point of interest (All, Boutique, Pick_Up_Point, Trade_Point, Point_Of_Sale)
+        - name: longitude
+          in: query
+          required: true
+          type: number
+          description: Longitude of the geo point
+        - name: latitude
+          in: query
+          required: true
+          type: number
+          description: Latitude of the geo point
+        - name: supportedService
+          in: query
+          required: false
+          description: Service supported by the poi (see possible values in PoiService definition). In case of multiple services, they should be separated by commas (processed as OR operator).
+          type: string
+          enum: ['RECYCLING', 'COFFEE_TASTING', 'VERTUO_PRODUCTS', 'CASH_ON_DELIVERY', 'REMOTE_BOOKING', 'BOUTIQUE_PICKUP', 'PROVIDER_PICKUP']
+        - name: rangeInMeters
+          in: query
+          required: false
+          type: number
+          description: Range in meters where to search (if not specified, default value is a 300 KM range) - Deprecated, will be removed in future releases
+        - name: distance
+          in: query
+          required: false
+          type: number
+          description: range converted based on distanceUnit where to search if both rangeInMeters and distance are provided, distance will be used and converted based on the distanceUnit.
+        - name: maxResults
+          in: query
+          required: false
+          type: integer
+          description: Max number of results (if not specified, default value is 100 items)
+        - name: pupGroupId
+          in: query
+          required: false
+          type: string
+          description: Group id of the pick up point to be searched
+        - name: language
+          in: query
+          required: false
+          type: string
+          description: Language (mainly used to get description for opening hours)
+        - name : distanceUnit
+          in : query
+          required : false
+          type : string
+          enum : ['KM', 'M', 'MI', 'YD']
+          description : Accepted value for distance unit (M for Meters, KM for Kilometers, MI for Miles, YD for Yards)
+        - name: excludedType
+          in: query
+          required: false
+          type: string
+          description: Excluded type is the type of point of interest to be excluded in ALL query search type. In case of multiple excluded types, they should be separated by commas (e.g. Trade_Point,Point_Of_Sale)
+      responses:
+        '200':
+          description: Correctly get the pois search result
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Poi'
+          examples:
+            application/json:
+              - type: PickUpPoint
+                id: '1'
+                name: pick-up-point 1
+                description: pick-up-point 2 description
+                distance: 2.35
+                distanceUnit: Kilometers
+                addresses:
+                - addressLine1: rue epinettes
+                  addressLine2: address line 2
+                  zipCode: '12345'
+                  city: Lausanne
+                  region: VD
+                  country: ch
+                longitude: 2.2945
+                latitude: 48.8584
+                phone: 0123456789
+                supportedServices:
+                - coffee-tasting
+                - recycling
+                openingHoursWeeks:
+                - weekDays:
+                  - day: monday
+                    openingHours:
+                    - openingTime:
+                        hour: 8
+                        minute: 0
+                      closingTime:
+                        hour: 19
+                        minute: 0
+                  text: Ma-Ve 08:00-19:00 Sa 10:00-18:00 Horaires spéciaux durant les jours fériés
+                    et les veilles de jours fériés
+                mostSpecificGroup: http://www.post.ch/pickpost/schemas/points/2009/02
+                logoUrl: "/ecom/medias/sys_master/public/9476186112030/pickup_logo1.png"
+
+  /{marketCode}/{poisType}/{id}:
+    get:
+      summary: detail of a point of interest
+      description: used to retrieve a point of interest for a type and an id
+      operationId: searchFromId
+      parameters:
+        - name: marketCode
+          in: path
+          required: true
+          type: string
+          description: 'Nesclub2 market code in lowercase eg: us, ch...'
+        - name: poisType
+          in: path
+          type: string
+          required: true
+          enum: ['All', 'Boutique', 'Pick_Up_Point', 'Trade_Point', 'Point_Of_Sale']
+          description: type of point of interest (All, Boutique, Pick_Up_Point, Trade_Point, Point_Of_Sale)
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: the id of the point of interest
+        - name: language
+          in: query
+          type: string
+          description: Language (mainly used to get description for opening hours)
+      responses:
+        '200':
+          description: Correctly get the pois search result
+          schema:
+            $ref: '#/definitions/Poi'
+          examples:
+            application/json:
+              type: PickUpPoint
+              id: '1'
+              name: pick-up-point 1
+              description: pick-up-point 2 description
+              distance: 2.35
+              distanceUnit: Kilometers
+              addresses:
+              - addressLine1: rue epinettes
+                addressLine2: address line 2
+                zipCode: '12345'
+                city: Lausanne
+                region: VD
+                country: ch
+              longitude: 2.2945
+              latitude: 48.8584
+              phone: 0123456789
+              supportedServices:
+              - coffee-tasting
+              - recycling
+              openingHoursWeeks:
+              - weekDays:
+                - day: monday
+                  openingHours:
+                  - openingTime:
+                      hour: 8
+                      minute: 0
+                    closingTime:
+                      hour: 19
+                      minute: 0
+                text: Ma-Ve 08:00-19:00 Sa 10:00-18:00 Horaires spéciaux durant les jours fériés et les veilles de jours fériés
+              mostSpecificGroup: http://www.post.ch/pickpost/schemas/points/2009/02
+              logoUrl: "/ecom/medias/sys_master/public/9476186112030/pickup_logo1.png"
+
+definitions:
+
+  PoiService:
+    type: string
+    enum: ['recycling', 'coffee-tasting', 'vertuo-products', 'priority', 'signature', 'boutique-pickup', 'cash-on-delivery', 'remote-booking', 'provider-pickup']
+
+  Address:
+    type: object
+    properties:
+      addressLine1:
+        type: string
+      addressLine2:
+        type: string
+      zipCode:
+        type: string
+      city:
+        type: string
+      region:
+        type: string
+      country:
+        type: string
+    example:
+      addressLine1: avenue de rhodanie
+      addressLine2: address line 2
+      zipCode: '12345'
+      city: Lausanne
+      region: VD
+      country: ch
+
+  OpeningHoursWeek:
+    type: object
+    description: contains the weekly opening times for a poi
+    properties:
+      start:
+        type: string
+      end:
+        type: string
+      weekDays:
+        type: array
+        items:
+          $ref: '#/definitions/WeekDay'
+      text:
+        type: string
+        description: unstructured and localized text that can be displayed in case detailed information is not available
+    example:
+      weekDays:
+      - day: monday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+          closed: false
+      - day: tuesday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+          closed: false
+      - day: wednesday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+          closed: false
+      - day: thursday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+          closed: false
+      - day: friday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+          closed: false
+      - day: saturday
+        openingHours:
+        - openingTime:
+            hour: 8
+            minute: 0
+          closingTime:
+            hour: 12
+            minute: 0
+          closed: false
+        - openingTime:
+            hour: 13
+            minute: 0
+          closingTime:
+            hour: 18
+            minute: 0
+          closed: false
+      - day: sunday
+        openingHours: []
+      text: Ma-Ve 08:00-19:00 Sa 10:00-18:00 Horaires spéciaux durant les jours fériés et les veilles de jours fériés
+
+  WeekDay:
+    type: object
+    description: contains the opening hours of the day
+    properties:
+      day:
+        type: string
+        description: contains the name of the week-day translated per language (the default value is English)
+      openingHours:
+        type: array
+        items:
+          $ref: '#/definitions/OpeningHoursDay'
+    required:
+      - day
+      - openingHours
+    example:
+      day: friday
+      openingHours:
+      - openingTime:
+          hour: 8
+          minute: 0
+        closingTime:
+          hour: 19
+          minute: 0
+        closed: false
+
+  OpeningHoursDay:
+    type: object
+    description: contains information about the opening time and closure time for a poi for a specific day
+    properties:
+      openingTime:
+        $ref: '#/definitions/PoiTime'
+        description: opening time of the poi for a specific day
+      closingTime:
+        $ref: '#/definitions/PoiTime'
+        description: closing time of the poi for a specific day
+      closed:
+        type: boolean
+    example:
+      openingTime:
+        minute: 0
+        hour: 8
+      closingTime:
+        minute: 0
+        hour: 19
+      closed: false
+
+  PoiTime:
+    description: describes an opening or closing time for a poi
+    type: object
+    properties:
+      hour:
+        type: integer
+      minute:
+        type: integer
+    required:
+    - minute
+    - hour
+    example:
+      minute: 0
+      hour: 19
+
+  Poi:
+    type: object
+    description: contains all informations to describe a point of interest
+    discriminator: type
+    properties:
+      type:
+        type: string
+      id:
+        type: string
+        description: unique identifier of the poi
+      name:
+        type: string
+        description: name of the poi
+      description:
+        type: string
+        description: description of the poi
+      distance:
+        type: number
+        description: distance from the requested geo point
+      distanceUnit:
+        type: string
+        enum: ['Meters', 'Kilometers', 'Yards', 'Miles']
+        description: unit used to express the distance (Meters, Kilometers, Yards, Miles)
+      addresses:
+        type: array
+        description: address of the poi
+        items:
+          $ref: '#/definitions/Address'
+      eSiriusID:
+        type: string
+        description: eSirius id 
+      longitude:
+        type: number
+        format: double
+        description: longitude of the poi
+      latitude:
+        type: number
+        format: double
+        description: latitude of the poi
+      phone:
+        type: string
+        description: phone number of the poi
+      supportedServices:
+        type: array
+        description: services that the poi supports
+        items:
+          $ref: '#/definitions/PoiService'
+      openingHoursWeeks:
+        type: array
+        description: information about opening hours of the poi per week
+        items:
+          $ref: '#/definitions/OpeningHoursWeek'
+    required:
+    - id
+    - addresses
+    - type
+
+  Boutique:
+    allOf:
+    - type: object
+      properties:
+        stockId:
+          type: string
+          description: ncs stock id for boutiques
+        pickupTime:
+          type: string
+          description: estimated LOCAL time for order to be ready on a boutique. Format yyyy-MM-dd'T'HH:mm
+          example: '2018-01-17T09:25'
+    - $ref: '#/definitions/Poi'
+    example:
+      id: d68b2bfa1d924764d140e48d7209cd829523f026
+      distance: 397
+      distanceUnit: Meters
+      addresses:
+      - addressLine1: Rue du Cornavin 6
+        zipCode: '1201'
+        city: Genève
+        country: CH
+      longitude: 6.14217
+      latitude: 46.20738
+      phone: '0800 55 52 53 '
+      supportedServices:
+      - recycling
+      - boutique-pickup
+      openingHoursWeeks:
+        monday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+        tuesday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+        wednesday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 0
+        thursday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 21
+            minute: 0
+        friday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 19
+            minute: 30
+        saturday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 18
+            minute: 0
+        sunday: []
+      stockId: '62'
+      pickupTime: 2017-09-05T15:55
+    required:
+    - stockId
+
+  PickUpPoint:
+    allOf:
+    - type: object
+      properties:
+        mostSpecificGroup:
+          type: string
+          description: pick-up point specific group URL
+        logoUrl:
+          type: string
+          description: absolute path (not URL because no host) of the pick up point logo that should be displayed
+    - $ref: '#/definitions/Poi'
+    example:
+      id: ed40a54aec73cbdcacf92a31a841bc6f47a4d607
+      distance: 104.84
+      distanceUnit: Meters
+      addresses:
+      - addressLine1: Bagages
+        addressLine2: Place de Cornavin 7
+        zipCode: '1201'
+        city: Genève
+        region: GE
+        country: CH
+      longitude: 6.143314
+      latitude: 46.2107512
+      supportedServices: []
+      openingHoursWeeks:
+        start: '00:00:00'
+        end: '00:00:00'
+        monday:
+        - openingTime:
+            hour: 8
+            minute: 30
+          closingTime:
+            hour: 18
+            minute: 45
+        tuesday:
+        - openingTime:
+            hour: 8
+            minute: 30
+          closingTime:
+            hour: 18
+            minute: 45
+        wednesday:
+        - openingTime:
+            hour: 8
+            minute: 30
+          closingTime:
+            hour: 18
+            minute: 45
+        thursday:
+        - openingTime:
+            hour: 8
+            minute: 30
+          closingTime:
+            hour: 18
+            minute: 45
+        friday:
+        - openingTime:
+            hour: 8
+            minute: 30
+          closingTime:
+            hour: 18
+            minute: 45
+        saturday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 13
+            minute: 0
+        - openingTime:
+            hour: 14
+            minute: 0
+          closingTime:
+            hour: 18
+            minute: 30
+        sunday:
+        - openingTime:
+            hour: 9
+            minute: 0
+          closingTime:
+            hour: 13
+            minute: 0
+        - openingTime:
+            hour: 14
+            minute: 0
+          closingTime:
+            hour: 18
+            minute: 30
+      mostSpecificGroup: http://www.post.ch/pickpost/schemas/points/2009/02
